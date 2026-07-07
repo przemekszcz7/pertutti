@@ -1,0 +1,6 @@
+{
+  "name": "Per Tutti",
+  "description": "Premium Italian restaurant, patisserie, and gelateria in Skórzewo.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

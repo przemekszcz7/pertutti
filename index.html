@@ -1,0 +1,2487 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Per Tutti — Pizza, Pasta, Cukiernia i Lodziarnia | Skórzewo</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Nunito:wght@300;400;600;700&family=Tenor+Sans&display=swap" rel="stylesheet">
+  
+  <style>
+    /* CSS VARIABLES - BRAND COLORS & TYPOGRAPHY */
+    :root {
+      --white: #fcfcfc;
+      --cream: #fdf8f4;
+      --parchment: #f5ede4;
+      --rose: #b14e68;
+      --rose-dark: #8e3a52;
+      --rose-light: #c97088;
+      --rose-ghost: rgba(177, 78, 104, 0.08);
+      --black: #0f0e0c;
+      --dark: #1a1714;
+      --dark-card: #242018;
+      --gold: #c4a063;
+      --pistachio: #6a8c5e;
+      --text-dark: #0f0e0c;
+      --text-mid: #3a3530;
+      --text-muted: #8a8078;
+      
+      --font-brand: 'Cormorant Garamond', serif;
+      --font-body: 'Nunito', sans-serif;
+      --font-ui: 'Tenor Sans', sans-serif;
+    }
+
+    /* GLOBAL RESET & BASE STYLES */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--white);
+      color: var(--text-mid);
+      font-family: var(--font-body);
+    }
+
+    body {
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* TYPOGRAPHY UTILITIES */
+    h1, h2, h3, h4 {
+      font-family: var(--font-brand);
+      color: var(--text-dark);
+      font-weight: 400;
+    }
+
+    p {
+      font-family: var(--font-body);
+      font-weight: 300;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* SECTIONS STYLE VARIATIONS */
+    section {
+      position: relative;
+      padding: 6rem 1.5rem;
+      overflow: hidden;
+    }
+
+    .bg-cream {
+      background-color: var(--cream);
+    }
+
+    .bg-white {
+      background-color: var(--white);
+    }
+
+    .bg-parchment {
+      background-color: var(--parchment);
+    }
+
+    .bg-dark {
+      background-color: var(--black);
+      color: var(--white);
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* NAV BAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(15, 14, 12, 0.96);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(177, 78, 104, 0.4);
+      padding: 0.85rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .navbar-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--rose);
+      box-shadow: 0 0 10px rgba(177, 78, 104, 0.3);
+    }
+
+    .navbar-title {
+      font-family: var(--font-brand);
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    .navbar-title span {
+      color: var(--rose);
+      font-style: italic;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+
+    .nav-link {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: rgba(252, 252, 252, 0.8);
+      position: relative;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: var(--rose);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .nav-link:hover {
+      color: var(--rose-light);
+    }
+
+    .nav-link:hover::after {
+      transform: scaleX(1);
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.82rem;
+      color: var(--white);
+      background-color: var(--rose);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--rose-dark);
+      transform: translateY(-1px);
+    }
+
+    /* HAMBURGER & MOBILE MENU */
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      flex-direction: column;
+      gap: 5px;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: var(--rose);
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--black);
+      z-index: 105;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .mobile-menu.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu .nav-link {
+      font-size: 1.25rem;
+      font-family: var(--font-brand);
+      text-transform: none;
+      letter-spacing: 0.05em;
+      color: var(--white);
+    }
+
+    .mobile-menu .nav-link:hover {
+      color: var(--rose);
+    }
+
+    /* DECORATIVE MOTIFS */
+    .tricolor {
+      display: inline-flex;
+      gap: 2px;
+      align-items: center;
+      height: 18px;
+    }
+
+    .tricolor span {
+      display: block;
+      width: 4px;
+      height: 18px;
+      border-radius: 2px;
+    }
+
+    .tricolor .t-green { background: var(--pistachio); }
+    .tricolor .t-white { background: rgba(252, 252, 252, 0.9); }
+    .tricolor .t-rose { background: var(--rose); }
+
+    /* THIN DOUBLE-LINE BORDERS */
+    .double-border {
+      position: relative;
+      border: 1px solid var(--rose);
+      padding: 5px;
+      border-radius: 8px;
+    }
+
+    .double-border::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      left: 4px;
+      right: 4px;
+      border: 1px solid var(--rose);
+      pointer-events: none;
+      border-radius: 5px;
+      opacity: 0.6;
+    }
+
+    /* SECTION LABELS & HEADINGS */
+    .section-label {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .section-headline {
+      font-family: var(--font-brand);
+      font-size: clamp(1.8rem, 3.5vw, 3rem);
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 1.2rem;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .bg-dark .section-headline {
+      color: var(--white);
+    }
+
+    .section-subtext {
+      max-width: 700px;
+      margin: 0 auto 3.5rem auto;
+      text-align: center;
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: var(--text-mid);
+      line-height: 1.8;
+    }
+
+    .bg-dark .section-subtext {
+      color: rgba(252, 252, 252, 0.7);
+    }
+
+    /* SECTION DIVIDERS */
+    .section-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      max-width: 450px;
+      margin: 4.5rem auto 0 auto;
+    }
+
+    .section-divider .line {
+      height: 1px;
+      flex: 1;
+    }
+
+    .section-divider .line-rose {
+      background: var(--rose);
+    }
+
+    .section-divider .line-gold {
+      background: var(--gold);
+    }
+
+    .section-divider .ornament {
+      color: var(--rose);
+      font-size: 1.2rem;
+    }
+
+    /* BUTTONS */
+    .btn {
+      font-family: var(--font-ui);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.9rem 2rem;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-rose {
+      background-color: var(--rose);
+      color: var(--white);
+    }
+
+    .btn-rose:hover {
+      background-color: var(--rose-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(177, 78, 104, 0.35);
+    }
+
+    .btn-outline-cream {
+      background-color: transparent;
+      border: 1px solid rgba(252, 252, 252, 0.4);
+      color: var(--white);
+    }
+
+    .btn-outline-cream:hover {
+      border-color: var(--white);
+      background-color: rgba(252, 252, 252, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline-rose {
+      background-color: transparent;
+      border: 1px solid var(--rose);
+      color: var(--rose);
+    }
+
+    .btn-outline-rose:hover {
+      background-color: var(--rose-ghost);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(177, 78, 104, 0.1);
+    }
+
+    .btn-outline-gold {
+      background-color: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-outline-gold:hover {
+      background-color: rgba(196, 160, 99, 0.08);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(196, 160, 99, 0.15);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      height: 100vh;
+      min-height: 750px;
+      background-color: var(--black);
+      background-image: 
+        radial-gradient(ellipse at 50% 35%, rgba(177, 78, 104, 0.18), transparent 60%),
+        radial-gradient(ellipse at 20% 80%, rgba(196, 160, 99, 0.08), transparent 50%),
+        linear-gradient(to bottom, rgba(15, 14, 12, 0.4) 0%, rgba(15, 14, 12, 0.65) 55%, rgba(15, 14, 12, 0.94) 100%),
+        url('https://i.ibb.co/bRWsPwVS/719051121-18438239110189614-5477642737268602884-n.jpg');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 5rem;
+      padding-bottom: 0;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+      max-width: 850px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-ui);
+      color: rgba(255, 255, 255, 0.68);
+      font-size: 0.72rem;
+      letter-spacing: 0.45em;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .hero-h1-line1 {
+      font-family: var(--font-brand);
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.85);
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      letter-spacing: 0.15em;
+    }
+
+    .hero-h1-line2 {
+      font-family: var(--font-brand);
+      font-weight: 700;
+      color: var(--white);
+      font-size: clamp(3.8rem, 11vw, 8.5rem);
+      line-height: 0.85;
+      letter-spacing: -0.01em;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-h1-line3 {
+      font-family: var(--font-brand);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--rose-light);
+      font-size: clamp(0.9rem, 2vw, 1.4rem);
+      letter-spacing: 0.25em;
+    }
+
+    .hero-separator {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      margin: 0.5rem 0;
+    }
+
+    .hero-separator .rule-rose {
+      width: 100px;
+      height: 1px;
+      background-color: var(--rose);
+    }
+
+    .hero-separator .rule-gold {
+      width: 100px;
+      height: 1px;
+      background-color: var(--gold);
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      max-width: 650px;
+      line-height: 1.8;
+    }
+
+    .hero-badges {
+      display: flex;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-badge {
+      font-family: var(--font-ui);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--gold);
+      padding: 0.4rem 1.2rem;
+      border-radius: 4px;
+      background: rgba(15, 14, 12, 0.4);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1.2rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .hero-options {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      justify-content: center;
+    }
+
+    .hero-option {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.85rem;
+      color: var(--rose-light);
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero-wave {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 70px;
+      z-index: 5;
+    }
+
+    .hero-wave svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* O NAS & TRZY FILARY */
+    .watermark-pt {
+      position: absolute;
+      right: -5%;
+      top: 15%;
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 32vw;
+      color: rgba(177, 78, 104, 0.035);
+      pointer-events: none;
+      user-select: none;
+      z-index: 1;
+      font-weight: 600;
+    }
+
+    .dot-grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(var(--rose-ghost) 1.5px, transparent 1.5px);
+      background-size: 32px 32px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3.5rem;
+    }
+
+    .pillar-card {
+      border-radius: 10px;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+      position: relative;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(177, 78, 104, 0.08);
+    }
+
+    .pillar-card-icon {
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.35s ease;
+    }
+
+    .pillar-card:hover .pillar-card-icon {
+      transform: scale(1.08);
+    }
+
+    .pillar-card-headline {
+      font-family: var(--font-brand);
+      font-size: 1.75rem;
+      font-style: italic;
+      margin-bottom: 0.3rem;
+    }
+
+    .pillar-card-sub {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    .pillar-card-body {
+      font-size: 0.92rem;
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Specific Pillar Card Themes */
+    .pillar-pizza {
+      background-color: var(--black);
+      color: var(--white);
+      border-top: 3px solid var(--rose);
+    }
+    .pillar-pizza .pillar-card-headline { color: var(--white); }
+    .pillar-pizza .pillar-card-sub { color: var(--rose-light); }
+    .pillar-pizza .pillar-card-body { color: rgba(255, 255, 255, 0.75); }
+
+    .pillar-bakery {
+      background-color: var(--parchment);
+      color: var(--text-dark);
+      border-top: 3px solid var(--gold);
+    }
+    .pillar-bakery .pillar-card-headline { color: var(--text-dark); }
+    .pillar-bakery .pillar-card-sub { color: var(--gold); }
+    .pillar-bakery .pillar-card-body { color: var(--text-mid); }
+
+    .pillar-gelato {
+      background-color: var(--rose);
+      color: var(--white);
+      border-top: 3px solid var(--white);
+    }
+    .pillar-gelato .pillar-card-headline { color: var(--white); }
+    .pillar-gelato .pillar-card-sub { color: rgba(255, 255, 255, 0.85); }
+    .pillar-gelato .pillar-card-body { color: rgba(255, 255, 255, 0.9); }
+
+    .card-options {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: auto;
+    }
+
+    .card-option-badge {
+      font-size: 0.75rem;
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+      font-weight: 400;
+    }
+
+    .pillar-pizza .card-option-badge {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* CROISSANTY SPECIAL SECTION */
+    .croissant-section {
+      background-color: var(--parchment);
+      background-image: radial-gradient(ellipse at 60% 50%, rgba(196, 160, 99, 0.09), transparent 60%);
+    }
+
+    .croissant-layout {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .croissant-label-box {
+      border: 1px solid var(--gold);
+      padding: 0.4rem 1.1rem;
+      display: inline-block;
+      font-family: var(--font-ui);
+      color: var(--gold);
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      border-radius: 4px;
+      margin-bottom: 1.25rem;
+    }
+
+    .croissant-headline {
+      font-family: var(--font-brand);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 700;
+      font-style: italic;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 0.25rem;
+    }
+
+    .croissant-sub {
+      font-family: var(--font-brand);
+      color: var(--rose);
+      font-size: 1.15rem;
+      font-style: italic;
+      margin-bottom: 1.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .croissant-body {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      font-weight: 300;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+    }
+
+    .flavor-badges-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .flavor-badge {
+      border-left: 3px solid var(--rose);
+      padding: 0.5rem 0 0.5rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      transition: transform 0.25s ease;
+    }
+
+    .flavor-badge:hover {
+      transform: translateX(4px);
+    }
+
+    .flavor-badge-title {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .flavor-badge-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    /* Specific flavor border/bg adjustments */
+    .fb-pistachio {
+      border-left-color: var(--pistachio);
+      background: rgba(106, 140, 94, 0.06);
+    }
+    .fb-pistachio .flavor-badge-title { color: #3d5834; }
+
+    .fb-raspberry {
+      border-left-color: var(--rose);
+      background: rgba(177, 78, 104, 0.06);
+    }
+    .fb-raspberry .flavor-badge-title { color: var(--rose); }
+
+    .fb-kinder {
+      border-left-color: var(--gold);
+      background: rgba(196, 160, 99, 0.08);
+    }
+    .fb-kinder .flavor-badge-title { color: #8e6c31; }
+
+    .croissant-note {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .croissant-images-column {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .croissant-img-container {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--gold);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+      position: relative;
+      height: auto;
+    }
+
+    .croissant-img-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .croissant-img-container:hover img {
+      transform: scale(1.04);
+    }
+
+    .croissant-img-c1 {
+      height: auto;
+    }
+
+    .croissant-img-c2 {
+      height: auto;
+    }
+
+    /* LIGHTBOX MODAL STYLES */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(10, 9, 8, 0.95);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lightbox-modal.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transform: scale(0.9);
+      transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .lightbox-modal.active .lightbox-content {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 2rem;
+      color: rgba(252, 252, 252, 0.8);
+      font-size: 2.5rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      transition: color 0.2s ease, transform 0.2s ease;
+      line-height: 1;
+    }
+
+    .lightbox-close:hover {
+      color: var(--rose-light);
+      transform: scale(1.1);
+    }
+
+    /* GALERIA SMAKÓW */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0, 0, 0, 0.02);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: saturate(1.08) contrast(1.02);
+      transition: all 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .gallery-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(177, 78, 104, 0.25);
+      opacity: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+      pointer-events: none;
+    }
+
+    .gallery-overlay-icon {
+      color: var(--white);
+      font-size: 2.5rem;
+      transform: scale(0.8);
+      transition: transform 0.4s ease;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+    }
+
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item:hover .gallery-overlay-icon {
+      transform: scale(1);
+    }
+
+    /* Desktop grid configuration */
+    .gi-1 { grid-column: span 2; height: 320px; }
+    .gi-2 { grid-column: span 1; height: 320px; }
+    .gi-3 { grid-column: span 1; height: 320px; }
+    .gi-4 { grid-column: span 1; height: 230px; }
+    .gi-5 { grid-column: span 1; height: 230px; }
+    .gi-6 { grid-column: span 2; height: 230px; }
+    .gi-7 { grid-column: span 2; height: 320px; }
+    .gi-8 { grid-column: span 1; height: 320px; }
+    .gi-9 { grid-column: span 1; height: 320px; }
+    .gi-10 { grid-column: 2 / span 2; height: 230px; } /* Centered beautifully */
+
+    .gallery-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3.5rem;
+    }
+
+    /* OPINIE SECTION */
+    .opinie-section {
+      background-color: var(--black);
+      background-image: 
+        radial-gradient(circle at 50% 50%, rgba(177, 78, 104, 0.12), transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(196, 160, 99, 0.06), transparent 50%);
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+    }
+
+    .review-card {
+      background-color: var(--dark);
+      border: 1px solid rgba(177, 78, 104, 0.18);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
+
+    .review-card:hover {
+      border-color: rgba(177, 78, 104, 0.45);
+      box-shadow: 0 10px 25px rgba(177, 78, 104, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 2px;
+    }
+
+    .review-quote-icon {
+      position: absolute;
+      top: -0.8rem;
+      left: 1.5rem;
+      font-family: var(--font-brand);
+      font-size: 7.5rem;
+      color: rgba(177, 78, 104, 0.08);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .review-text {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--white);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .review-text span.highlight {
+      color: var(--rose-light);
+      font-weight: 600;
+    }
+
+    .review-source {
+      font-family: var(--font-body);
+      font-weight: 300;
+      color: rgba(252, 252, 252, 0.38);
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .reviews-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 3.5rem;
+    }
+
+    .wave-transition {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 50px;
+      z-index: 3;
+    }
+
+    .wave-transition svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* GODZINY I ZAMÓWIENIA */
+    .hours-orders-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 3.5rem;
+      align-items: flex-start;
+    }
+
+    .hours-card {
+      background-color: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(177, 78, 104, 0.045);
+      padding: 2.5rem 2.2rem;
+      border: 1px solid rgba(177, 78, 104, 0.08);
+    }
+
+    .hours-headline {
+      font-family: var(--font-brand);
+      font-size: 1.4rem;
+      font-style: italic;
+      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .hours-table {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(177, 78, 104, 0.08);
+    }
+
+    .hours-row:last-child {
+      border-bottom: none;
+    }
+
+    .hours-day {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: 0.92rem;
+      color: var(--text-dark);
+    }
+
+    .hours-dots {
+      flex-grow: 1;
+      border-bottom: 1px dotted rgba(177, 78, 104, 0.2);
+      margin: 0 1rem;
+      position: relative;
+      top: 0.25rem;
+    }
+
+    .hours-time {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--rose);
+    }
+
+    .hours-time.gold-highlight {
+      color: var(--gold);
+    }
+
+    .hours-weekend-note {
+      text-align: center;
+      font-family: var(--font-body);
+      font-weight: 400;
+      color: var(--gold);
+      font-size: 0.8rem;
+      margin-top: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .order-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .order-card {
+      border-radius: 10px;
+      padding: 1.5rem 1.8rem;
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease;
+    }
+
+    .order-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .order-card-icon {
+      font-size: 2.2rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .order-card-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+
+    .order-card-title {
+      font-family: var(--font-ui);
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .order-card-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    .order-card-link {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-top: 0.25rem;
+      display: inline-block;
+    }
+
+    /* Specific Order Card Themes */
+    .oc-delivery {
+      background-color: var(--rose);
+      color: var(--white);
+    }
+    .oc-delivery .order-card-desc { color: rgba(255, 255, 255, 0.85); }
+    .oc-delivery .order-card-link { color: var(--white); }
+
+    .oc-takeout {
+      background-color: var(--parchment);
+      color: var(--text-dark);
+      border: 1px solid rgba(177, 78, 104, 0.12);
+    }
+    .oc-takeout .order-card-desc { color: var(--text-mid); }
+    .oc-takeout .order-card-link { color: var(--rose); }
+
+    .oc-reservation {
+      background-color: var(--black);
+      color: var(--white);
+      border-top: 3px solid var(--gold);
+    }
+    .oc-reservation .order-card-desc { color: rgba(255, 255, 255, 0.7); }
+    .oc-reservation .order-card-link { color: var(--gold); }
+
+    /* KONTAKT I LOKALIZACJA */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 3.5rem;
+      align-items: center;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .contact-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .contact-logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--rose);
+      box-shadow: 0 0 20px rgba(177, 78, 104, 0.4);
+    }
+
+    .contact-brand-name {
+      font-family: var(--font-brand);
+      font-size: 1.8rem;
+      color: var(--white);
+    }
+
+    .contact-brand-name span {
+      color: var(--rose-light);
+      font-style: italic;
+    }
+
+    .contact-block {
+      border-left: 3px solid var(--rose);
+      padding-left: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.35rem;
+    }
+
+    .contact-phone-link {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 2.2rem;
+      color: var(--rose-light);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .contact-phone-link:hover {
+      color: var(--white);
+    }
+
+    .contact-text {
+      font-size: 0.95rem;
+      font-weight: 300;
+      color: rgba(252, 252, 252, 0.8);
+    }
+
+    .contact-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-style: italic;
+      color: rgba(252, 252, 252, 0.45);
+      margin-top: 0.5rem;
+    }
+
+    .contact-fb-btn-wrap {
+      margin-top: 0.5rem;
+    }
+
+    .map-container-wrap {
+      border: 1px solid rgba(177, 78, 104, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .map-iframe {
+      width: 100%;
+      height: 300px;
+      display: block;
+      border: none;
+      filter: sepia(0.35) saturate(0.5) hue-rotate(290deg) brightness(0.65);
+    }
+
+    .map-info-box {
+      background-color: var(--dark);
+      border-top: 1px solid rgba(177, 78, 104, 0.2);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .map-info-title {
+      font-family: var(--font-brand);
+      font-style: italic;
+      font-size: 1.1rem;
+      color: var(--rose-light);
+      font-weight: 600;
+    }
+
+    .map-info-pillars {
+      font-family: var(--font-body);
+      font-size: 0.82rem;
+      color: rgba(252, 252, 252, 0.6);
+      font-weight: 300;
+    }
+
+    .map-info-hours {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      color: rgba(252, 252, 252, 0.45);
+      font-weight: 300;
+    }
+
+    /* FOOTER */
+    .footer {
+      background-color: #0a0908;
+      color: var(--white);
+      padding: 5rem 1.5rem 2rem 1.5rem;
+      border-top: 1px solid var(--rose);
+      position: relative;
+    }
+
+    .footer-tricolor {
+      position: absolute;
+      top: 0;
+      left: 10%;
+      display: inline-flex;
+      gap: 2px;
+      height: 4px;
+      width: 80px;
+    }
+
+    .footer-tricolor span {
+      flex: 1;
+      height: 4px;
+    }
+
+    .footer-tricolor .ft-green { background: var(--pistachio); }
+    .footer-tricolor .ft-white { background: var(--white); }
+    .footer-tricolor .ft-rose { background: var(--rose); }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .footer-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .footer-logo {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1px solid var(--rose);
+    }
+
+    .footer-title {
+      font-family: var(--font-brand);
+      font-size: 1.75rem;
+      color: var(--rose-light);
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      font-weight: 300;
+      color: rgba(252, 252, 252, 0.4);
+      line-height: 1.7;
+    }
+
+    .footer-headline {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-links-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-link-item {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(252, 252, 252, 0.55);
+    }
+
+    .footer-link-item:hover {
+      color: var(--rose-light);
+    }
+
+    .footer-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(252, 252, 252, 0.6);
+    }
+
+    .footer-contact-info a {
+      color: rgba(252, 252, 252, 0.6);
+    }
+
+    .footer-contact-info a:hover {
+      color: var(--rose-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(177, 78, 104, 0.15);
+      padding-top: 2rem;
+      text-align: center;
+    }
+
+    .footer-copyright {
+      font-family: var(--font-body);
+      font-weight: 300;
+      font-size: 0.7rem;
+      color: rgba(252, 252, 252, 0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* ANIMATIONS & INTERSECTION OBSERVER */
+    .reveal {
+      opacity: 0;
+      transform: translateY(15px);
+      transition: opacity 0.85s cubic-bezier(0.25, 1, 0.5, 1), transform 0.85s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Stagger transitions helper classes */
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+
+    /* MEDIA QUERIES for fully responsive scaling */
+    @media (max-width: 1024px) {
+      .pillars-grid {
+        gap: 1.5rem;
+      }
+      .croissant-layout {
+        gap: 2.5rem;
+      }
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .gi-10 {
+        grid-column: span 1;
+      }
+      .reviews-grid {
+        gap: 1.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section {
+        padding: 4.5rem 1.25rem;
+      }
+
+      .navbar {
+        padding: 0.85rem 1.25rem;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links, .nav-cta {
+        display: none;
+      }
+
+      .pillars-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 3rem auto 0 auto;
+      }
+
+      .croissant-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .croissant-images-column {
+        flex-direction: row;
+      }
+
+      .croissant-img-container {
+        flex: 1;
+      }
+
+      .croissant-img-c1, .croissant-img-c2 {
+        height: auto;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      /* Reset desktop col spans on mobile */
+      .gi-1, .gi-2, .gi-3, .gi-4, .gi-5, .gi-6, .gi-7, .gi-8, .gi-9, .gi-10 {
+        grid-column: span 1;
+        height: 180px;
+      }
+
+      /* Make wide items take full width on mobile for better visibility */
+      .gi-1, .gi-6, .gi-7, .gi-10 {
+        grid-column: span 2;
+        height: 240px;
+      }
+
+      .reviews-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+        margin: 0 auto;
+      }
+
+      .hours-orders-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        text-align: center;
+      }
+
+      .footer-brand, .footer-col {
+        align-items: center;
+      }
+
+      .footer-tricolor {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation-delay: 0s !important;
+        animation-duration: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0s !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION BAR -->
+  <header>
+    <nav class="navbar" id="navbar">
+      <a href="#hero" class="navbar-brand">
+        <img class="navbar-logo" src="https://i.ibb.co/4RkzRcdp/733974825-1716835727116643-6040792924223567631-n.jpg" alt="Per Tutti Logo" loading="lazy">
+        <span class="navbar-title">Per <span>Tutti</span></span>
+      </a>
+
+      <!-- Desktop Links -->
+      <div class="nav-links">
+        <a href="#o-nas" class="nav-link">O nas</a>
+        <a href="#croissanty" class="nav-link">Croissanty</a>
+        <a href="#galeria" class="nav-link">Galeria</a>
+        <a href="#opinie" class="nav-link">Opinie</a>
+        <a href="#godziny" class="nav-link">Godziny i Zamówienia</a>
+        <a href="#kontakt" class="nav-link">Kontakt</a>
+      </div>
+
+      <!-- Quick Call Button Desktop -->
+      <a href="tel:511257720" class="nav-cta">
+        <span>511 257 720</span>
+      </a>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" id="hamburger-btn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </nav>
+
+    <!-- Mobile Full Screen Menu Overlay -->
+    <div class="mobile-menu" id="mobile-menu-overlay">
+      <a href="#o-nas" class="nav-link mobile-link">O nas</a>
+      <a href="#croissanty" class="nav-link mobile-link">Croissanty</a>
+      <a href="#galeria" class="nav-link mobile-link">Galeria</a>
+      <a href="#opinie" class="nav-link mobile-link">Opinie</a>
+      <a href="#godziny" class="nav-link mobile-link">Godziny i Zamówienia</a>
+      <a href="#kontakt" class="nav-link mobile-link">Kontakt</a>
+      <a href="tel:511257720" class="btn btn-rose" style="margin-top: 1.5rem;">
+        Zadzwoń: 511 257 720
+      </a>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- 1. HERO SECTION -->
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <!-- Tricolor Stripe -->
+        <div class="tricolor">
+          <span class="t-green"></span>
+          <span class="t-white"></span>
+          <span class="t-rose"></span>
+        </div>
+
+        <span class="hero-eyebrow">Włoska Restauracja · Cukiernia · Lodziarnia</span>
+        
+        <h1 class="hero-title">
+          <span class="hero-h1-line1">Benvenuti da</span><br>
+          <span class="hero-h1-line2">Per Tutti</span><br>
+          <span class="hero-h1-line3">Pizza & Pasta · Skórzewo</span>
+        </h1>
+
+        <div class="hero-separator">
+          <div class="rule-rose"></div>
+          <div class="rule-gold" style="margin-top: 4px;"></div>
+        </div>
+
+        <p class="hero-sub">
+          Dowóz · Wynos · Rezerwacje — autentyczny i pełen miłości smak Włoch tuż obok Poznania.
+        </p>
+
+        <div class="hero-badges">
+          <span class="hero-badge">Restauracja</span>
+          <span class="hero-badge">Cukiernia</span>
+          <span class="hero-badge">Lodziarnia</span>
+        </div>
+
+        <div class="hero-ctas">
+          <a href="tel:511257720" class="btn btn-rose">
+            Zadzwoń: 511 257 720
+          </a>
+          <a href="mailto:per.tutti@wp.pl?subject=Rezerwacja" class="btn btn-outline-cream">
+            Rezerwacja stolika
+          </a>
+        </div>
+
+        <div class="hero-options">
+          <span class="hero-option">Dowóz</span>
+          <span class="hero-option">Wynos</span>
+          <span class="hero-option">Rezerwacja</span>
+        </div>
+      </div>
+
+      <!-- Wave divider to transition to warm cream -->
+      <div class="hero-wave">
+        <svg viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,45 C320,85 720,85 1080,45 C1240,25 1380,10 1440,0 L1440,75 L0,75 Z" fill="var(--cream)"></path>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- 2. O NAS / TRZY FILARY -->
+    <section class="bg-cream" id="o-nas" style="padding-bottom: 4rem;">
+      <div class="dot-grid"></div>
+      <div class="watermark-pt">PT</div>
+
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">✦ Per Tutti</span>
+          <h2 class="section-headline">Wszystko czego Dusza Zapragnie.</h2>
+          <p class="section-subtext">
+            Per Tutti to wyjątkowe miejsce w Skórzewie, gdzie włoska tradycja kulinarna spotyka się z pasją do gotowania i pieczenia. U nas znajdziesz prawdziwą pizzę i makarony, kremowe lody włoskie i artystyczne wypieki — wszystko z serca, przygotowane od podstaw w naszej kuchni.
+          </p>
+        </div>
+
+        <!-- Three Pillar Cards Grid -->
+        <div class="pillars-grid">
+          
+          <!-- Card 1: Restaurant -->
+          <div class="pillar-card pillar-pizza reveal stagger-1">
+            <h3 class="pillar-card-headline">Pizza & Pasta</h3>
+            <span class="pillar-card-sub">Włoskie Smaki</span>
+            <p class="pillar-card-body">
+              Ręcznie wyrabiane ciasto dojrzewające, autorskie, gęste sosy pomidorowe i sprężyste włoskie makarony. Kuchnia otwarta, pasja autentyczna.
+            </p>
+            <div class="card-options">
+              <span class="card-option-badge">Dowóz</span>
+              <span class="card-option-badge">Wynos</span>
+              <span class="card-option-badge">Rezerwacje</span>
+            </div>
+          </div>
+
+          <!-- Card 2: Bakery -->
+          <div class="pillar-card pillar-bakery reveal stagger-2">
+            <h3 class="pillar-card-headline">Cukiernia</h3>
+            <span class="pillar-card-sub">Artisan Bakery</span>
+            <p class="pillar-card-body">
+              Maślane croissanty, chrupiące tarty, kremowe torty i artystyczne wypieki tworzone od podstaw. Każdego dnia serwujemy świeże słodkości.
+            </p>
+            <div class="card-options">
+              <span class="card-option-badge" style="background: rgba(196,160,99,0.1); color: #7d602b; border: 1px solid rgba(196,160,99,0.25);">Słodki Stół</span>
+              <span class="card-option-badge" style="background: rgba(196,160,99,0.1); color: #7d602b; border: 1px solid rgba(196,160,99,0.25);">Na Zamówienie</span>
+            </div>
+          </div>
+
+          <!-- Card 3: Gelateria -->
+          <div class="pillar-card pillar-gelato reveal stagger-3">
+            <h3 class="pillar-card-headline">Lodziarnia</h3>
+            <span class="pillar-card-sub">Gelato Italiano</span>
+            <p class="pillar-card-body">
+              Kremowe, naturalne lody rzemieślnicze z domową salsą jagodową i wyjątkowymi, naturalnymi dodatkami. Prawdziwa oaza smaku i doskonałego gustu.
+            </p>
+            <div class="card-options">
+              <span class="card-option-badge" style="background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.25);">Gelato Klasyczne</span>
+              <span class="card-option-badge" style="background: rgba(255,255,255,0.15); color: var(--white); border: 1px solid rgba(255,255,255,0.25);">Autorskie Kompozycje</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Elegant stationery divider -->
+        <div class="section-divider">
+          <span class="line line-rose"></span>
+          <span class="ornament">✦</span>
+          <span class="line line-gold"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 3. CROISSANTY (Croissant Feature - SPECIAL SECTION) -->
+    <section class="croissant-section" id="croissanty">
+      <div class="container croissant-layout">
+        
+        <!-- Left Content Column -->
+        <div class="reveal">
+          <div class="croissant-label-box">
+            ✦ NOWOŚĆ · Z NASZEJ KUCHNI
+          </div>
+          <h2 class="croissant-headline">Ręcznie robione croissanty</h2>
+          <h3 class="croissant-sub">Na włoskim cieście laminowanym</h3>
+          
+          <p class="croissant-body">
+            Z wielką dumą przedstawiamy naszą najnowszą, maślaną kreację. Przygotowaliśmy dla Was autentyczne croissanty robione całkowicie od podstaw w naszej cukierni, pieczone codziennie rano, aby zachwycały chrupkością i delikatnym wnętrzem. Wybierz swój ulubiony smak:
+          </p>
+
+          <!-- Flavor stack -->
+          <div class="flavor-badges-stack">
+            <!-- Pistachio -->
+            <div class="flavor-badge fb-pistachio">
+              <span class="flavor-badge-title">Pistacja</span>
+              <span class="flavor-badge-desc">Nadzienie z gęstego, kremowego masła pistacjowego o głębokim, orzechowym smaku.</span>
+            </div>
+            <!-- Raspberry -->
+            <div class="flavor-badge fb-raspberry">
+              <span class="flavor-badge-title">Biała czekolada z malinami</span>
+              <span class="flavor-badge-desc">Harmonijne, słodko-kwaśne połączenie aksamitnej białej czekolady oraz dojrzałych, leśnych malin.</span>
+            </div>
+            <!-- Kinder Bueno -->
+            <div class="flavor-badge fb-kinder">
+              <span class="flavor-badge-title">Kinder Bueno</span>
+              <span class="flavor-badge-desc">Bogaty krem z orzechów laskowych i mlecznej czekolady, inspirowany kultowym smakiem.</span>
+            </div>
+          </div>
+
+          <p class="croissant-note">
+            Uwaga: Croissanty wypiekamy rano w limitowanych ilościach — dostępne codziennie do wyczerpania zapasów.
+          </p>
+
+          <a href="tel:511257720" class="btn btn-rose">
+            Zamów na wynos: 511 257 720
+          </a>
+        </div>
+
+        <!-- Right Stacked Photos Column -->
+        <div class="croissant-images-column reveal stagger-2">
+          <div class="croissant-img-container croissant-img-c1">
+            <img src="https://i.ibb.co/DHFqcNqM/723883588-18440268142189614-8492850766206962612-n.jpg" alt="Maślane croissanty Per Tutti z nadzieniem" loading="lazy">
+          </div>
+          <div class="croissant-img-container croissant-img-c2">
+            <img src="https://i.ibb.co/b5g4YxQD/725172873-18440268133189614-4477444292356954654-n.jpg" alt="Świeże croissanty" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Station divider at bottom -->
+      <div class="section-divider" style="margin-top: 5rem;">
+        <span class="line line-rose"></span>
+        <span class="ornament">✦</span>
+        <span class="line line-gold"></span>
+      </div>
+    </section>
+
+
+    <!-- 4. GALERIA SMAKÓW (Food Gallery) -->
+    <section class="bg-white" id="galeria">
+      <div class="container">
+        <div class="reveal">
+          <span class="section-label">✦ GALERIA SMAKÓW</span>
+          <h2 class="section-headline">Pizza, Pasta, Lody, Wypieki</h2>
+          <p class="section-subtext" style="font-style: italic;">
+            Każde danie przygotowujemy z miłością do tradycyjnych receptur i przy użyciu najwyższej klasy oryginalnych składników z Włoch. Zapraszamy w wizualną podróż po naszej karcie.
+          </p>
+        </div>
+
+        <!-- 10 Food Photos Collage Grid -->
+        <div class="gallery-grid">
+          <!-- F1 -->
+          <div class="gallery-item gi-1 reveal stagger-1">
+            <img src="https://i.ibb.co/NgQQJ69X/612487090-18413789452189614-7604470004767115088-n.jpg" alt="Danie makaronowe włoskie" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F2 -->
+          <div class="gallery-item gi-2 reveal stagger-2">
+            <img src="https://i.ibb.co/0yFcm6qR/630949488-18419125426189614-5036585604237149655-n.jpg" alt="Oryginalna włoska pizza" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F3 -->
+          <div class="gallery-item gi-3 reveal stagger-3">
+            <img src="https://i.ibb.co/DgL7sbK4/631112974-18419125417189614-2048329712117172386-n.jpg" alt="Pyszne lody włoskie" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F4 -->
+          <div class="gallery-item gi-4 reveal stagger-1">
+            <img src="https://i.ibb.co/VpJxJBDS/645828579-18422412760189614-1933419933784080219-n.jpg" alt="Słodkie desery" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F5 -->
+          <div class="gallery-item gi-5 reveal stagger-2">
+            <img src="https://i.ibb.co/RkQpZ13j/649228699-18422810299189614-6602066607462177567-n.jpg" alt="Tradycyjna pizza z pieca" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F6 -->
+          <div class="gallery-item gi-6 reveal stagger-3">
+            <img src="https://i.ibb.co/4w9qcLyR/649217340-18422810296189614-4204605374216611730-n.jpg" alt="Truskawkowe desery lodowe" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F7 -->
+          <div class="gallery-item gi-7 reveal stagger-1">
+            <img src="https://i.ibb.co/mC4ktwJL/684958179-18432646933189614-1391730320612466129-n.jpg" alt="Włoskie makarony i zioła" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F8 -->
+          <div class="gallery-item gi-8 reveal stagger-2">
+            <img src="https://i.ibb.co/5z3pRQH/684683503-18433190119189614-4503048319085722929-n.jpg" alt="Tarta z kremem i owocami" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F9 -->
+          <div class="gallery-item gi-9 reveal stagger-3">
+            <img src="https://i.ibb.co/MxWk1L81/685218811-18433599274189614-4024820836109454996-n.jpg" alt="Wyśmienita porcja makaronu" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+          <!-- F10 Centered -->
+          <div class="gallery-item gi-10 reveal stagger-2">
+            <img src="https://i.ibb.co/93S9fBYQ/717803346-18438299329189614-178210214641839867-n.jpg" alt="Aperitivo i pizza" loading="lazy">
+            <div class="gallery-overlay">
+              <svg class="gallery-overlay-icon" viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width: 2.2rem; height: 2.2rem;">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                <line x1="11" y1="8" x2="11" y2="14"></line>
+                <line x1="8" y1="11" x2="14" y2="11"></line>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-footer reveal">
+          <a href="https://www.facebook.com/per.tutti.galeriamalwowa/" target="_blank" rel="noopener" class="btn btn-outline-rose">
+            Więcej zdjęć na Facebooku — Per Tutti
+          </a>
+        </div>
+
+        <!-- Elegant stationery divider -->
+        <div class="section-divider">
+          <span class="line line-rose"></span>
+          <span class="ornament">✦</span>
+          <span class="line line-gold"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 5. OPINIE (Reviews) -->
+    <section class="opinie-section bg-dark" id="opinie" style="padding-bottom: 7rem;">
+      <div class="container">
+        
+        <div class="reveal">
+          <span class="section-label">✦ OPINIE GOŚCI</span>
+          <h2 class="section-headline">Co mówią nasi Goście</h2>
+          <p class="section-subtext">
+            Opinie naszych Gości są dla nas najwspanialszym dowodem na to, że tworzenie kuchni z prawdziwym włoskim sercem ma sens. Ponad 100 recenzji na Facebooku!
+          </p>
+        </div>
+
+        <!-- Reviews Grid -->
+        <div class="reviews-grid">
+          
+          <!-- Review 1 -->
+          <div class="review-card reveal stagger-1">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-icon">“</div>
+            <p class="review-text">
+              "Pyszna pizza a na deser lody z salsą jagodową i croissanty z kremem. Do tego miła obsługa i właścicielka z sercem do miejsca, które tworzy. Polecam."
+            </p>
+            <span class="review-source">— Opinia z Facebooka</span>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="review-card reveal stagger-2">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-icon">“</div>
+            <p class="review-text">
+              "Jedzenie przepyszne, obsługa nic dodać nic ująć. chapeau bas Pani Nikolo. Dziękuję."
+            </p>
+            <span class="review-source">— Opinia z Facebooka</span>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="review-card reveal stagger-3">
+            <div class="review-stars">★★★★★</div>
+            <div class="review-quote-icon">“</div>
+            <p class="review-text">
+              "Najlepsza restauracja w okolicy, przepyszne smaki dla dzieci i dorosłych, zawsze pięknie podane z dbałością o każdy szczegół. Od makaronów przez pizzę do słodkości. Polecam każdemu!!!"
+            </p>
+            <span class="review-source">— Opinia z Facebooka</span>
+          </div>
+
+        </div>
+
+        <div class="reviews-footer reveal">
+          <a href="https://www.facebook.com/per.tutti.galeriamalwowa/reviews/?id=100063706954080&sk=reviews" target="_blank" rel="noopener" class="btn btn-outline-gold">
+            ZOBACZ PONAD 100 OPINII NA FACEBOOKU →
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Wave transition back to warm cream -->
+      <div class="wave-transition">
+        <svg viewBox="0 0 1440 50" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,25 C480,50 960,50 1440,25 L1440,50 L0,50 Z" fill="var(--cream)"></path>
+        </svg>
+      </div>
+    </section>
+
+
+    <!-- 6. GODZINY I ZAMÓWIENIA -->
+    <section class="bg-cream" id="godziny">
+      <div class="container">
+        
+        <div class="reveal">
+          <span class="section-label">✦ GODZINY I ZAMÓWIENIA</span>
+          <h2 class="section-headline">Kiedy nas odwiedzisz</h2>
+          <p class="section-subtext">
+            Chcesz zjeść na miejscu w naszym lokalu w Skórzewie, zamówić z szybką dostawą do domu, czy zarezerwować dogodny termin? Poniżej znajdziesz wszystkie szczegóły.
+          </p>
+        </div>
+
+        <div class="hours-orders-layout">
+          
+          <!-- Left Column: Hours Table -->
+          <div class="hours-card reveal stagger-1">
+            <h3 class="hours-headline">Godziny Otwarcia</h3>
+            <div class="hours-table">
+              
+              <div class="hours-row">
+                <span class="hours-day">Poniedziałek</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 21:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Wtorek</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 21:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Środa</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 21:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Czwartek</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 21:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Piątek</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 22:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Sobota</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 22:00</span>
+              </div>
+              
+              <div class="hours-row">
+                <span class="hours-day">Niedziela</span>
+                <span class="hours-dots"></span>
+                <span class="hours-time">12:00 – 21:00</span>
+              </div>
+
+            </div>
+            <p class="hours-weekend-note">Piątek–Sobota zapraszamy dłużej — do 22:00</p>
+          </div>
+
+          <!-- Right Column: Order Options Stack -->
+          <div class="order-methods reveal stagger-2">
+            
+            <!-- Delivery -->
+            <div class="order-card oc-delivery">
+              <div class="order-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+              </div>
+              <div class="order-card-details">
+                <span class="order-card-title">Dowóz do Domu</span>
+                <span class="order-card-desc">Ciepła pizza i makarony prosto pod Twoje drzwi. Zadzwoń i zamów!</span>
+                <a href="tel:511257720" class="order-card-link">Zadzwoń: 511 257 720</a>
+              </div>
+            </div>
+
+            <!-- Takeout -->
+            <div class="order-card oc-takeout">
+              <div class="order-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+              </div>
+              <div class="order-card-details">
+                <span class="order-card-title">Na Wynos</span>
+                <span class="order-card-desc">Skompletuj zamówienie telefonicznie lub e-mailem. Odbierz o ustalonej porze.</span>
+                <a href="tel:511257720" class="order-card-link">Zadzwoń i zamów</a>
+              </div>
+            </div>
+
+            <!-- Reservation -->
+            <div class="order-card oc-reservation">
+              <div class="order-card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </div>
+              <div class="order-card-details">
+                <span class="order-card-title" style="color: var(--gold)">Rezerwacja Stolika</span>
+                <span class="order-card-desc">Zabezpiecz wygodne miejsce dla rodziny lub na wieczorny aperitivo.</span>
+                <a href="mailto:per.tutti@wp.pl?subject=Rezerwacja" class="order-card-link" style="color: var(--rose-light);">per.tutti@wp.pl</a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Elegant stationery divider -->
+        <div class="section-divider">
+          <span class="line line-rose"></span>
+          <span class="ornament">✦</span>
+          <span class="line line-gold"></span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 7. KONTAKT I LOKALIZACJA -->
+    <section class="bg-dark" id="kontakt">
+      <div class="container">
+        
+        <div class="reveal">
+          <span class="section-label">✦ KONTAKT I LOKALIZACJA</span>
+          <h2 class="section-headline">Znajdziesz nas w Skórzewie</h2>
+          <p class="section-subtext">
+            Nasz przytulny lokal mieści się przy bocznej, urokliwej uliczce w Skórzewie, tuż pod samym Poznaniem. Odwiedź nas na kawę, lody, pizzę lub odezwij się w sprawie rezerwacji!
+          </p>
+        </div>
+
+        <div class="contact-layout">
+          
+          <!-- Left details column -->
+          <div class="contact-details reveal stagger-1">
+            <div class="contact-logo-wrap">
+              <img class="contact-logo" src="https://i.ibb.co/4RkzRcdp/733974825-1716835727116643-6040792924223567631-n.jpg" alt="Per Tutti Logo" loading="lazy">
+              <h3 class="contact-brand-name">Per <span>Tutti</span></h3>
+            </div>
+
+            <!-- Block 1: Phone -->
+            <div class="contact-block">
+              <span class="section-label" style="justify-content: flex-start; margin-bottom: 0.2rem;">Szybki Kontakt</span>
+              <a href="tel:511257720" class="contact-phone-link">511 257 720</a>
+              <span class="contact-desc">Telefon czynny w godzinach otwarcia restauracji</span>
+            </div>
+
+            <!-- Block 2: Email -->
+            <div class="contact-block">
+              <span class="section-label" style="justify-content: flex-start; margin-bottom: 0.2rem;">Adres E-mail</span>
+              <a href="mailto:per.tutti@wp.pl" class="contact-text" style="font-size: 1.15rem; font-weight: 400; color: var(--rose-light);">per.tutti@wp.pl</a>
+            </div>
+
+            <!-- Block 3: Location -->
+            <div class="contact-block">
+              <span class="section-label" style="justify-content: flex-start; margin-bottom: 0.2rem;">Adres</span>
+              <span class="contact-text" style="font-size: 1.2rem; font-weight: 400; color: var(--white);">ul. Bratnia 2, Skórzewo (62-070)</span>
+              <span class="contact-desc" style="color: rgba(255, 255, 255, 0.45);">Tuż przy granicy Poznania — autentyczny smak Włoch na wyciągnięcie Twojej ręki.</span>
+            </div>
+
+            <!-- Facebook Button -->
+            <div class="contact-fb-btn-wrap">
+              <a href="https://www.facebook.com/per.tutti.galeriamalwowa/" target="_blank" rel="noopener" class="btn btn-rose">
+                <!-- SVG Facebook Icon inline -->
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 0.5rem; display: inline-block; vertical-align: middle;">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+                Per Tutti na Facebooku
+              </a>
+            </div>
+          </div>
+
+          <!-- Right Google Maps wrapper column -->
+          <div class="map-container-wrap reveal stagger-2">
+            <!-- Custom stylized map styling is done via iframe filters in CSS -->
+            <iframe 
+              class="map-iframe"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2434.629550993952!2d16.786524277150153!3d52.39528654631343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470442345b1e95e7%3A0xa1f692095f78ffef!2sBratnia%202%2C%2062-070%20Sk%C3%B3rzewo%2C%20Poland!5e0!3m2!1sen!2spl!4v1716835727116" 
+              allowfullscreen="" 
+              loading="lazy" 
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+            
+            <div class="map-info-box">
+              <span class="map-info-title">Per Tutti Pizza & Pasta</span>
+              <span class="map-info-pillars">Restauracja · Cukiernia · Lodziarnia</span>
+              <span class="map-info-hours">Pon–Czw, Nd: 12:00 – 21:00 · Pt–Sb: 12:00 – 22:00</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <!-- Tricolor Top Accents -->
+    <div class="footer-tricolor">
+      <span class="ft-green"></span>
+      <span class="ft-white"></span>
+      <span class="ft-rose"></span>
+    </div>
+
+    <div class="container footer-grid">
+      
+      <!-- Brand column -->
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img class="footer-logo" src="https://i.ibb.co/4RkzRcdp/733974825-1716835727116643-6040792924223567631-n.jpg" alt="Per Tutti Logo" loading="lazy">
+          <h4 class="footer-title">Per Tutti</h4>
+        </div>
+        <p class="footer-brand-desc">
+          Wyjątkowe, pełne pasji i smaku połączenie włoskiej restauracji, rzemieślniczej cukierni i lodziarni w Skórzewie. Codziennie tworzymy z miłości do kulinarnej doskonałości.
+        </p>
+      </div>
+
+      <!-- Quick contact details -->
+      <div class="footer-col">
+        <h5 class="footer-headline">Kontakt i Adres</h5>
+        <div class="footer-contact-info">
+          <span>ul. Bratnia 2, Skórzewo (62-070)</span>
+          <span><a href="tel:511257720">511 257 720</a></span>
+          <span><a href="mailto:per.tutti@wp.pl">per.tutti@wp.pl</a></span>
+          <span style="margin-top: 0.5rem;"><a href="https://www.facebook.com/per.tutti.galeriamalwowa/" target="_blank" rel="noopener" class="nav-link" style="color: var(--rose-light);">Facebook Profile</a></span>
+        </div>
+      </div>
+
+      <!-- Quick hours overview -->
+      <div class="footer-col">
+        <h5 class="footer-headline">Nasze Usługi</h5>
+        <div class="footer-links-list">
+          <span class="footer-link-item">Autentyczna Pizza i Makarony</span>
+          <span class="footer-link-item">Świeże croissanty i tarty</span>
+          <span class="footer-link-item">Kremowe lody rzemieślnicze</span>
+          <span class="footer-link-item">Szybka dostawa & Odbiór osobisty</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright line -->
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 Per Tutti Pizza & Pasta | Skórzewo · Włoska Restauracja · Cukiernia · Lodziarnia. Wszystkie prawa zastrzeżone.
+      </p>
+    </div>
+  </footer>
+
+  <!-- LIGHTBOX MODAL -->
+  <div class="lightbox-modal" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Zamknij">&times;</button>
+    <img class="lightbox-content" id="lightbox-img" src="" alt="Powiększone zdjęcie">
+  </div>
+
+
+  <!-- SCRIPTS (VANILLA JAVASCRIPT ONLY) -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      
+      // NAVBAR CHANGE STYLE ON SCROLL
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", function() {
+        if (window.scrollY > 50) {
+          navbar.style.padding = "0.6rem 2rem";
+          navbar.style.background = "rgba(15, 14, 12, 0.98)";
+        } else {
+          navbar.style.padding = "0.85rem 2rem";
+          navbar.style.background = "rgba(15, 14, 12, 0.96)";
+        }
+      });
+
+      // MOBILE MENU OPEN / CLOSE TOGGLE
+      const hamburgerBtn = document.getElementById("hamburger-btn");
+      const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
+      const mobileLinks = document.querySelectorAll(".mobile-link");
+
+      function toggleMobileMenu() {
+        hamburgerBtn.classList.toggle("active");
+        mobileMenuOverlay.classList.toggle("active");
+        document.body.style.overflow = mobileMenuOverlay.classList.contains("active") ? "hidden" : "auto";
+      }
+
+      hamburgerBtn.addEventListener("click", toggleMobileMenu);
+
+      mobileLinks.forEach(link => {
+        link.addEventListener("click", function() {
+          // Close menu overlay on clicking link
+          hamburgerBtn.classList.remove("active");
+          mobileMenuOverlay.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+      });
+
+      // INTERSECTION OBSERVER FOR FADE-IN & DRIFT ANIMATIONS
+      const revealElements = document.querySelectorAll(".reveal");
+      
+      const revealObserver = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target); // Trigger only once
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: "0px 0px -40px 0px" // Trigger slightly before element enters viewport completely
+      });
+
+      revealElements.forEach(element => {
+        revealObserver.observe(element);
+      });
+
+      // LIGHTBOX MODAL LOGIC FOR GALLERY IMAGES
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const galleryItems = document.querySelectorAll(".gallery-item");
+
+      galleryItems.forEach(item => {
+        item.addEventListener("click", function() {
+          const img = this.querySelector("img");
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt || "Powiększone zdjęcie";
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+          }
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "auto";
+        // Clear src after transitions complete to avoid flickering next time
+        setTimeout(() => {
+          if (!lightbox.classList.contains("active")) {
+            lightboxImg.src = "";
+          }
+        }, 300);
+      }
+
+      if (lightboxClose) {
+        lightboxClose.addEventListener("click", closeLightbox);
+      }
+
+      if (lightbox) {
+        lightbox.addEventListener("click", function(e) {
+          // Close if clicking the background overlay itself, not the image
+          if (e.target === lightbox) {
+            closeLightbox();
+          }
+        });
+      }
+
+      // Close on Escape key press
+      window.addEventListener("keydown", function(e) {
+        if (e.key === "Escape" && lightbox && lightbox.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+
+    });
+  </script>
+
+</body>
+</html>
