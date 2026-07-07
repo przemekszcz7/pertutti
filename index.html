@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Per Tutti — Pizza, Pasta, Cukiernia i Lodziarnia | Skórzewo</title>
+  <link rel="icon" type="image/jpeg" href="https://i.ibb.co/4RkzRcdp/733974825-1716835727116643-6040792924223567631-n.jpg">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -270,6 +271,29 @@
 
     .mobile-menu .nav-link:hover {
       color: var(--rose);
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--white);
+      font-size: 2.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 0.5rem;
+      transition: color 0.2s ease, transform 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 106;
+    }
+
+    .mobile-menu-close:hover {
+      color: var(--rose-light);
+      transform: scale(1.1);
     }
 
     /* DECORATIVE MOTIFS */
@@ -1565,6 +1589,16 @@
         padding: 0.85rem 1.25rem;
       }
 
+      .hero {
+        height: auto;
+        min-height: 100vh;
+        padding: 7rem 1.25rem 5rem 1.25rem;
+      }
+
+      .hero-wave {
+        height: 45px;
+      }
+
       .hamburger {
         display: flex;
       }
@@ -1695,6 +1729,7 @@
 
     <!-- Mobile Full Screen Menu Overlay -->
     <div class="mobile-menu" id="mobile-menu-overlay">
+      <button class="mobile-menu-close" id="mobile-menu-close-btn" aria-label="Zamknij menu">&times;</button>
       <a href="#o-nas" class="nav-link mobile-link">O nas</a>
       <a href="#croissanty" class="nav-link mobile-link">Croissanty</a>
       <a href="#galeria" class="nav-link mobile-link">Galeria</a>
@@ -1760,8 +1795,8 @@
 
       <!-- Wave divider to transition to warm cream -->
       <div class="hero-wave">
-        <svg viewBox="0 0 1440 70" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-          <path d="M0,45 C320,85 720,85 1080,45 C1240,25 1380,10 1440,0 L1440,75 L0,75 Z" fill="var(--cream)"></path>
+        <svg viewBox="0 0 1440 100" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" shape-rendering="geometricPrecision">
+          <path d="M0,60 C480,100 960,100 1440,40 L1440,100 L0,100 Z" fill="var(--cream)"></path>
         </svg>
       </div>
     </section>
@@ -2394,6 +2429,7 @@
       const hamburgerBtn = document.getElementById("hamburger-btn");
       const mobileMenuOverlay = document.getElementById("mobile-menu-overlay");
       const mobileLinks = document.querySelectorAll(".mobile-link");
+      const mobileMenuCloseBtn = document.getElementById("mobile-menu-close-btn");
 
       function toggleMobileMenu() {
         hamburgerBtn.classList.toggle("active");
@@ -2402,6 +2438,14 @@
       }
 
       hamburgerBtn.addEventListener("click", toggleMobileMenu);
+
+      if (mobileMenuCloseBtn) {
+        mobileMenuCloseBtn.addEventListener("click", function() {
+          hamburgerBtn.classList.remove("active");
+          mobileMenuOverlay.classList.remove("active");
+          document.body.style.overflow = "auto";
+        });
+      }
 
       mobileLinks.forEach(link => {
         link.addEventListener("click", function() {
